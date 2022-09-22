@@ -1,0 +1,144 @@
+1)Qual a diferença entre objetos e classes? Exemplifique.
+
+As classes são as estruturas que os objetos vão definir. É como se a classe fosse a planta de uma casa que será construída, não é palpável e nem sólido, já a construção dessa planta são os objetos, por exemplo de uma classe casa, o objeto pode ser a cor da casa.
+
+2)De forma breve, conceitue atributos e métodos. Pesquise e exemplifique um
+exemplo de objeto que possua atributos e métodos (notação livre).
+
+São as propriedades de um objeto. O atributo se refere as características de daqule objeto, e os seus métodos são os comportamentos daquele método no objeto.
+
+3)A abstração visa focar no que é importante para um sistema. Você concorda que
+um atributo de uma pessoa pode ser importante ou não dependendo do contexto
+do sistema. Enumere na tabela abaixo contextos/sistemas distintos em que os
+atributos abaixo seriam relevantes:
+
+Peso: IMC
+Tipo de CNH: Bombeiro
+Tipo Sanguíneo: Banco de sangue
+Habilidade destra: Esportes
+Percentual de gordura: Perder peso
+Saldo em conta: saque
+Etinia: Censo do IBGE
+
+4)Considerando os objetos Pessoa e Conta:
+a. Seria interessante em um sistema bancário um objeto "conta" possuir uma
+"pessoa" como um atributo interno representando o titular da conta?
+
+Não, pois uma conta só deve possuir uma pessoa.
+
+b. Olhando no sentido inverso, seria interessante uma pessoa possuir mais de
+uma conta como atributo? Que elemento da programação estruturada melhor
+representaria o conjunto de contas de uma pessoa?
+
+Sim, pois uma pessoa pode possuir mais de uma conta, e acredito que uma array, pois pode armazenar quantas contas quiser.
+
+5)Identifique pelo menos 5 objetos de um sistema de controle acadêmico. Ex: aluno.
+
+Funcionários
+Notas
+Matérias
+Horários
+Pagamento
+
+6)Imagine um jogo qualquer. Identifique o máximo de objetos possíveis e eventuais
+características (atributos) e comportamentos (métodos) que os mesmos poderiam
+ter.
+
+class rpg_do_diego {
+    personagem () : strings {
+        return this.personagem1 || this.personagem2
+    }
+    equipamentos () : strings {
+        return this.sword || this.axe || this.knife
+    }
+    pais () : strings {
+        return this.country1 || this.country2
+    }
+    cidade () : strings{
+        return this.city1 || this.city2
+    }
+    dialogo() : strings {
+        return this.mesage1 || this.mesage2
+    }
+}
+
+7)Considerando o exemplo da classe Retangulo dos slides, implemente um método
+adicional chamado que calcule o perímetro do retângulo e altere a classe
+TestaRetangulo para exibir o cálculo do perímetro.
+
+
+class Retangulo {
+    //atributo
+    l1: number = 0;
+    l2: number = 0;
+
+    //objeto
+
+    calcular_perimetro () : number {
+        return this.l1 * 2 + this.l2 * 2
+    }
+
+    constructor(l1: number, l2: number) {
+        this.l1 = l1;
+        this.l2 = l2;
+    }
+}
+
+let r1 = new Retangulo(15, 20)
+console.log(r1.calcular_perimetro())
+
+8)Crie uma classe Circulo que possua um atributo raio. Crie dois métodos que
+calculam a área e o perímetro. Instancie um objeto dessa classe, atribua um valor
+ao raio e exiba a área e o perímetro chamando os dois métodos definidos.
+
+class Circulo {
+    //atributo
+    raio: number = 0;
+
+    //objeto
+    calcularArea(): number {
+        //método
+        return (this.raio ** 2) * 3.14;
+    }
+
+    calcular_perimetro () : number {
+        return 2 * this.raio * 3.14;
+    }
+
+    constructor(raio : number) {
+        this.raio = raio;
+    }
+}
+
+let r1 = new Circulo(20)
+console.log(r1.calcular_perimetro())
+console.log(r1.calcular_area())
+
+9)Crie uma classe chamada SituacaoFinanceira com os atributos valorCreditos e
+valorDebitos. Crie um método chamado saldo() que retorna/calcula a diferença
+entre crédito e débito. Instancie uma classe SituacaoFinanceira, inicialize os dois
+atributos e exiba o resultado do método saldo().
+
+class situacao_financeira {
+    valorCreditos : number = 0;
+    valorDebitos : number = 0;
+
+    saldo() : number {
+        return this.valorCreditos - this.valorDebitos
+    }
+
+
+constructor(valorCreditos : number, valorDebitos : number) {
+        this.valorCreditos = valorCreditos;
+        this.valorDebitos = valorCreditos;
+    }
+}
+
+let valor = new situacao_financeira(20, 10)
+console.log(valor.saldo())
+
+10)Represente as classes das questões 8 e 9 no formato UML.
+
+Diagrama de atividade da 8: O atributo raio é incluido na classe => O objeto área, que retorna a multiplicação do quadrado do raio por 3.14 => O objeto perímetro, retorna o comprimento do circulo.
+
+Diagrama de atividade da 9: O atributo valorCreditos e valorDebitos são ambos incluidos na classe => O objeto saldo é criado, e retorna a subtração do credito menos o debito.

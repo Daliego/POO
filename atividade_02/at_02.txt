@@ -1,0 +1,53 @@
+1)
+-A tipagem estática tem seu valor definido pela variável e a checagem de qual tipagem corresponde aquela variável é feita durante a compilação, já a checagem dinâmica é inserido na hora da construção da variável e a checagem é feita em tempo de execução;
+
+2)
+-Que em alguns casos como com números, uma variável do tipo float pode ser somada com uma variável tipo int e dar um valor alterado.
+
+3)
+function soma (a + b){
+    return a + b
+}
+Nesse caso eu posso retorna tanto uma soma de floats como uma soma de inteiros, podendo alterar o valor que deveria ser recebido.
+
+4)
+#include <stdio.h>
+#include <stdlib.h>
+
+int soma (int a, int b){
+    return a + b;
+}
+
+int main (void){
+    int numero1 = 10;
+    char numero2 = 'a';
+    int resultado = soma(numero1, numero2);
+    printf("%c", resultado);
+    printf("%d", resultado);
+}
+
+Possui tipagem fraca porque ao invés de ele retornar erro, devido a impossibilidade de somar uma string com um número, ele faz utilizando %d a conversão da string para algum número ou se utilizar %c ele retorna uma strig.
+
+5)
+const myObject = JSON.parse("{}");
+
+6)
+Não, pois o tipo number engloba ambos float e inteiro, por isso typescript ainda é considerada uma linguagem de tipagem forte
+7)
+function main(){
+    const numero : number  = 120.56
+    const palavra : string = 'Typescript'
+
+    console.log(`Ely\nMy payment time is ${numero}\nand\nmy prefered language is ${palavra}`)
+}
+
+main()
+
+8)e)
+
+function strictNullCheck (){
+    const palavra : string = null; \\ Null can't be assigned to string type;
+    console.log(palavra)
+}
+
+strictNullCheck()
