@@ -1,0 +1,75 @@
+A abordagem da questão 8 é retornar códigos de erro ou acerto. Já a da questão
+9f. é desconsiderar a alteração. Quais das duas você acha mais correta?
+Compare com seus códigos escritos em outras disciplinas.
+
+Eu acho que a abordagem da questão 9f a melhor, pois na questão 8, acaba 
+fazendo om que todas os métodos seguintes que envolvm a transação de dinheiro necessitem de verificação.
+
+//Q_08
+
+class Conta {
+    numero: String;
+    saldo: number;
+    constructor(numero: String, saldo: number) {
+        this.numero = numero;
+        this.saldo = saldo;
+    }
+
+    sacar(valor: number): boolean {
+        if (this.saldo - valor < 0){
+            console.log('#####-Saldo Insuficiente-#####')
+            return false
+        }else {
+            this.saldo = this.saldo - valor;
+            return true;
+        }
+    }
+    depositar(valor: number): void {
+        this.saldo = this.saldo + valor;
+    }
+    consultarSaldo(): number {
+        return this.saldo;
+    }
+    transferir(conta : Conta, valor : number): boolean{
+        if (this.sacar(valor) === false){
+            console.log('#####-Transferência incompleta-#####');
+            console.log('#####-Saldo insuficiente-#####');
+            return false;
+        }else {
+            this.sacar(valor);
+            conta.depositar(valor);
+            return true;
+        }
+    }
+}
+
+//Q_09
+
+class Jogador {
+    força: number;
+    nivel: number;
+    pontos_atuais: number;
+    constructor (força: number, nivel: number, pontos_atuais : number){
+        this.força = força;
+        this.nivel = nivel;
+        this.pontos_atuais = pontos_atuais;
+    }
+
+    calcularAtaque () : number{
+        return this.força * this.nivel;
+    }
+    atacar (Jogador : Jogador) : void{
+        if (Jogador.estaVivo() === true){
+            Jogador.pontos_atuais - this.calcularAtaque();
+        }else {
+            console.log('Impossível atacar, jogador morto')
+        }
+    }
+    estaVivo () : boolean{
+        return this.pontos_atuais > 0;
+    }
+    toString () : string{
+        return `Força: ${this.força} \nNível: ${this.nivel} \nPontos_atuais: ${this.pontos_atuais}`;
+    }
+}
+
