@@ -1,0 +1,49 @@
+//Coloquei os três métodos de tratamento de erro;
+
+Q1)  
+- Desconsiderar a operação;
+        sacar(valor: number): boolean {
+            let total: number;
+            if (this.consultarSaldo() - valor >= 0){
+                total = valor + valor * (this.taxaDeSaque/100);
+                super.sacar(total);
+                return 1;
+            }
+            //Se não executar vai desconsidrar a operação;
+        }
+
+    - Exibir mensagens de erro;
+        inserir(c: Conta): void{
+            let conta = this.consultar(c.consultarNumero());
+            if (conta == undefined){
+                this.contas.push(c);
+            }else{
+                console.log("ERRO: CONTA COM MESMO NÚMERO JÁ EXISTENTE");
+            }
+        }
+
+    - Retornar um código de erro;
+        Utilizando 1 para verdadeiro e 0 para falso;
+            sacar(valor: number): boolean {
+                let total: number;
+                if (this.consultarSaldo() - valor < 0){
+                    return 0;
+                }else {
+                    total = valor + valor * (this.taxaDeSaque/100);
+                    super.sacar(total);
+                    return 1;
+                }
+            }
+
+    - Criar exceções;
+
+        inserir(c: Conta): void{
+            let conta = this.consultar(c.consultarNumero());
+            if (conta == undefined){
+                this.contas.push(c);
+            }else{
+                throw new error("console.log("ERRO: ");
+            }
+        }
+
+Q2)
